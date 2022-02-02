@@ -33,7 +33,7 @@ function data (dt) {
         var np = d[name].password;
         if (password == np) {
             var fds = d[name][filename];
-            return fds;
+            return d;
         }
         if (np == undefined) {
             return "Name, Password error";
