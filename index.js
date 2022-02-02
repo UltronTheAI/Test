@@ -113,7 +113,7 @@ io.on("connection", (socket) => {
 
         d[name] = {};
         d[name].password = password;
-        socket.emit("result", "No Error");
+        socket.emit("result", "No Error 1");
     });
     socket.on('Acc-Remove', (st) => {
         var name = st[0];
@@ -125,13 +125,13 @@ io.on("connection", (socket) => {
         var np = d[name].password;
         if (password == np) {
             delete d[name];
-            socket.emit("result", "No Error");
+            socket.emit("result", "No Error 2");
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 2");
         }
         else {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 2");
         }
     });
     socket.on('Read', (st) => {
@@ -143,14 +143,14 @@ io.on("connection", (socket) => {
         
         var np = d[name].password;
         if (password == np) {
-            socket.emit(d[name][filename]);
+            socket.emit("result", d[name][filename] + " 3");
             // return "No Error";
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 3");
         }
         else {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 3");
         }
     });
     socket.on('Write', (st) => {
@@ -164,13 +164,13 @@ io.on("connection", (socket) => {
         if (password == np) {
             d[name][filename] = filetext;
             console.log(d);
-            socket.emit("result", "No Error");
+            socket.emit("result", "No Error 4");
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 4");
         }
         else {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 4");
         }
     });
     socket.on('Delete', (st) => {
@@ -183,13 +183,13 @@ io.on("connection", (socket) => {
         var np = d[name].password;
         if (password == np) {
             delete d[name][filename];
-            socket.emit("result", "No Error");
+            socket.emit("result", "No Error 5");
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 5");
         }
         else {
-            socket.emit("result", "Name, Password error");
+            socket.emit("result", "Name, Password error 5");
         }
     });
     
