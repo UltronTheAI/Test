@@ -6,7 +6,7 @@ var d = {"Server": {"passwords": "9876.server.5000"}};
 
 
 function data (dt) {
-    dt = dt.replaceAll("%20", " ");
+    dt = dt.replaceAll("%20", " ").replaceAll("%22", '"').replaceAll('%27', "'");
     dt = dt.split("");
     // delete dt[0];
     // delete dt[0];
