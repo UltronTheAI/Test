@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 
-var d = {"Server": {"passwords": "9876.server.5000"}};
+var d = {"Server": {"password": "9876.server.5000"}};
 
 
 function data (dt) {
