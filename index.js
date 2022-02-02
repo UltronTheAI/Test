@@ -12,7 +12,7 @@ function data (dt) {
     // return dt;
 
     var st = "";
-    for (var i = 1; i < dt.length; i++) {
+    for (var i = 2; i < dt.length; i++) {
         st += dt[i];
     }
 
