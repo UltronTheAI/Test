@@ -23,6 +23,12 @@ function data (dt) {
         st[i] = st[i].replaceAll("%s", " ");
     }
 
+    var name = st[0];
+    var password = st[1];
+    var mode = st[2];
+    var filename = st[3];
+    var filetext = st[4];
+    
     return st;
 }
 
