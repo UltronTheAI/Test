@@ -1,5 +1,8 @@
 const express = require("express");
+const res = require("express/lib/response");
 const app = express();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server, { cors: { origin: "*" } });
 
 
 var d = {"Server": {"password": "server"}};
@@ -96,4 +99,102 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 5000);
+server.listen(process.env.PORT || 5000);
+
+io.on("connection", (socket) => {
+    // console.log("User connected... user id = " + socket.id);
+
+    socket.on('Sign-up', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+
+        d[name] = {};
+        d[name].password = password;
+        socket.emit("result", "No Error");
+    });
+    socket.on('Acc-Remove', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+
+        var np = d[name].password;
+        if (password == np) {
+            delete d[name];
+            socket.emit("result", "No Error");
+        }
+        if (np == undefined) {
+            socket.emit("result", "Name, Password error");
+        }
+        else {
+            socket.emit("result", "Name, Password error");
+        }
+    });
+    socket.on('Read', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+        
+        var np = d[name].password;
+        if (password == np) {
+            socket.emit(d[name][filename]);
+            // return "No Error";
+        }
+        if (np == undefined) {
+            socket.emit("result", "Name, Password error");
+        }
+        else {
+            socket.emit("result", "Name, Password error");
+        }
+    });
+    socket.on('Write', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+
+        var np = d[name].password;
+        if (password == np) {
+            d[name][filename] = filetext;
+            console.log(d);
+            socket.emit("result", "No Error");
+        }
+        if (np == undefined) {
+            socket.emit("result", "Name, Password error");
+        }
+        else {
+            socket.emit("result", "Name, Password error");
+        }
+    });
+    socket.on('Delete', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+
+        var np = d[name].password;
+        if (password == np) {
+            delete d[name][filename];
+            socket.emit("result", "No Error");
+        }
+        if (np == undefined) {
+            socket.emit("result", "Name, Password error");
+        }
+        else {
+            socket.emit("result", "Name, Password error");
+        }
+    });
+    
+    socket.on('disconnect', () =>{
+        
+    });
+    
+});
