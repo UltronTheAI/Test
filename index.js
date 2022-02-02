@@ -5,7 +5,7 @@ function data (dt) {
     if (dt == "/?hi") {
         dt = dt.replace('/?', '');
         dt = JSON.parse(dt);
-        return dt;
+        return String(dt);
     }
     return "hi_-8";
 }
