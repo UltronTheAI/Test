@@ -25,10 +25,50 @@ function data (dt) {
 
     var name = st[0];
     var password = st[1];
-    var mode = st[2];
+    var mode_ = st[2];
     var filename = st[3];
     var filetext = st[4];
-    
+
+    if (mode_ = "read") {
+        var np = d[name].password;
+        if (password == np) {
+            var fds = d[name][filename];
+            return fds;
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
+    if (mode_ = "write") {
+        var np = d[name].password;
+        if (password == np) {
+            d[name][filename] = filetext;
+            // return fds;
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
+    if (mode_ = "delete") {
+        var np = d[name].password;
+        if (password == np) {
+            delete d[name][filename];
+            // return fds;
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
+
     return st;
 }
 
