@@ -29,24 +29,12 @@ function data (dt) {
     var filename = st[3];
     var filetext = st[4];
 
-    if (mode_ = "read") {
-        var np = d[name].password;
-        if (password == np) {
-            var fds = d[name][filename];
-            return d;
-        }
-        if (np == undefined) {
-            return "Name, Password error";
-        }
-        else {
-            return "Name, Password error";
-        }
-    }
-    if (mode_ = "write") {
+    if (mode_ == "write") {
         var np = d[name].password;
         if (password == np) {
             d[name][filename] = filetext;
-            // return fds;
+            console.log(d);
+            return "No Error";
         }
         if (np == undefined) {
             return "Name, Password error";
@@ -55,11 +43,23 @@ function data (dt) {
             return "Name, Password error";
         }
     }
-    if (mode_ = "delete") {
+    if (mode_ == "read") {
+        var np = d[name].password;
+        if (password == np) {
+            return d[name][filename];
+            // return "No Error";
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
+    if (mode_ == "delete") {
         var np = d[name].password;
         if (password == np) {
             delete d[name][filename];
-            // return fds;
         }
         if (np == undefined) {
             return "Name, Password error";
