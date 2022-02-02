@@ -3,7 +3,7 @@ const app = express();
 
 function data (dt) {
     if (dt == "/?hi") {
-        return String(dt);
+        return String(dt).replace('/?', '');
     }
     return "hi_-8";
 }
