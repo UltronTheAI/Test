@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
 
+var d = [];
+
 function data (dt) {
     if (dt == "/?hi") {
-        return String(dt).replace('/?', '');
+        d.push(String(dt).replace('/?', ''));
+        return d;
     }
     return "hi_-8";
 }
