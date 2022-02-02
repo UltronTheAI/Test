@@ -59,7 +59,7 @@ function data (dt) {
     if (mode_ == "delete") {
         var np = d[name].password;
         if (password == np) {
-            d[name][filename] = null;
+            delete d[name][filename];
             return "No Error";
         }
         if (np == undefined) {
