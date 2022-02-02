@@ -15,13 +15,7 @@ function data (dt) {
             console.log(fs.readFileSync("books.txt", "utf8"));
         }
         });
-        setTimeout(() => {
-            fs.readFile('books.txt', 'utf8', function(err, data){
-            
-                // Display the file content
-                return d;
-            });
-        }, 1000);
+        return d;
     }
     return "hi_-8";
 }
