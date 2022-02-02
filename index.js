@@ -9,10 +9,10 @@ function data (dt) {
     dt = dt.split("");
     // delete dt[0];
     // delete dt[0];
-    return dt;
+    // return dt;
 
     var st = "";
-    for (var i = 0; i < dt.length; i++) {
+    for (var i = 1; i < dt.length; i++) {
         st += dt[i];
     }
 
