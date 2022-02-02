@@ -19,6 +19,10 @@ function data (dt) {
 
     st = st.split(" ");
 
+    for (var i = 0; i < st.length; i++) {
+        st[i] = st[i].replaceAll("%s", " ");
+    }
+
     return st;
 }
 
