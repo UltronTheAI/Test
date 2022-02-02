@@ -2,12 +2,11 @@ const express = require("express");
 const app = express();
 
 
-var d = {"hi": "hi"};
+var d = {"Server": {"passwords": "9876.server.5000"}};
 
 function data (dt) {
-    dt = dt.replace('/?', '');
-    d["hi"] = dt;
-    return d;
+    dt = dt.split("");
+    return dt;
 }
 
 app.get('/', (req, res) => {
