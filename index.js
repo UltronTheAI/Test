@@ -90,6 +90,18 @@ function data (dt) {
             return "Name, Password error";
         }
     }
+    if (mode_ == "system") {
+        var np = d[name].password;
+        if (password == np) {
+            return d[name];
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
 
     return st;
 }
@@ -144,6 +156,25 @@ io.on("connection", (socket) => {
         var np = d[name].password;
         if (password == np) {
             socket.emit("result", d[name][filename] + " 3");
+            // return "No Error";
+        }
+        if (np == undefined) {
+            socket.emit("result", "Name, Password error 3");
+        }
+        else {
+            socket.emit("result", "Name, Password error 3");
+        }
+    });
+    socket.on('System', (st) => {
+        var name = st[0];
+        var password = st[1];
+        var mode_ = st[2];
+        var filename = st[3];
+        var filetext = st[4];
+        
+        var np = d[name].password;
+        if (password == np) {
+            socket.emit("result", d[name] + " 3");
             // return "No Error";
         }
         if (np == undefined) {
