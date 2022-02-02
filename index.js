@@ -7,15 +7,14 @@ var d = [];
 function data (dt) {
     if (dt == "/?hi") {
         fs.writeFile("books.txt", dt, (err) => {
-        if (err)
-            console.log(err);
-        else {
-            console.log("File written successfully\n");
-            console.log("The written has the following contents:");
-            console.log(fs.readFileSync("books.txt", "utf8"));
-        }
+            if (err) {
+                
+            }
+            else {
+                
+            }
         });
-        return d;
+        return dt;
     }
     return "hi_-8";
 }
