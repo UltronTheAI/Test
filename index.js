@@ -174,14 +174,14 @@ io.on("connection", (socket) => {
         
         var np = d[name].password;
         if (password == np) {
-            socket.emit("result", d[name] + " 3");
+            socket.emit("result", d[name] + " 7");
             // return "No Error";
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error 3");
+            socket.emit("result", "Name, Password error 7");
         }
         else {
-            socket.emit("result", "Name, Password error 3");
+            socket.emit("result", "Name, Password error 7");
         }
     });
     socket.on('Write', (st) => {
