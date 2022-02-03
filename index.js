@@ -174,8 +174,7 @@ io.on("connection", (socket) => {
         
         var np = d[name].password;
         if (password == np) {
-            socket.emit("result", String
-(d[name]) + " 7");
+            socket.emit("result", JSON.stringify(d[name]) + " 7");
             // return "No Error";
         }
         if (np == undefined) {
