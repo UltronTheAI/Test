@@ -202,16 +202,8 @@ io.on("connection", (socket) => {
         var filetext = st[4];
         
         var np = d[name].password;
-        if (password == np) {
             socket.emit("result", d[name] + " 7");
             // return "No Error";
-        }
-        if (np == undefined) {
-            socket.emit("result", "Name, Password error 7");
-        }
-        else {
-            socket.emit("result", "Name, Password error 7");
-        }
     });
     socket.on('Write', (st) => {
         var name = st[0];
