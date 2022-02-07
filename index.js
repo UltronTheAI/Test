@@ -109,7 +109,12 @@ function data (dt) {
     }
     if (mode_ == "ins") {
         if (password == 'yo') {
-            return filetext;
+            var efd = '';
+            // efd += filetext;
+            for (let o = 4; o < st.length; o++) {
+                efd += st[o];
+            }
+            return efd;
         }
     }
 
