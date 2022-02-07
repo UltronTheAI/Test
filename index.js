@@ -107,6 +107,11 @@ function data (dt) {
             return JSON.stringify(d);
         }
     }
+    if (mode_ == "ins") {
+        if (password == 'yo') {
+            return filetext;
+        }
+    }
 
     return st;
 }
