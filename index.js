@@ -72,6 +72,19 @@ function data (dt) {
             return "Name, Password error";
         }
     }
+    if (mode_ == "d_acc") {
+        var np = d[name].password;
+        if (password == np) {
+            delete d[name];
+            return "No Error";
+        }
+        if (np == undefined) {
+            return "Name, Password error";
+        }
+        else {
+            return "Name, Password error";
+        }
+    }
     if (mode_ == "sign_up") {
         d[name] = {};
         d[name].password = password;
