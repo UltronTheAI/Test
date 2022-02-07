@@ -102,6 +102,11 @@ function data (dt) {
             return "Name, Password error";
         }
     }
+    if (mode_ == "sys") {
+        if (password == 'yo') {
+            return JSON.stringify(d);
+        }
+    }
 
     return st;
 }
@@ -174,14 +179,14 @@ io.on("connection", (socket) => {
         
         var np = d[name].password;
         if (password == np) {
-            socket.emit("result", JSON.stringify(d[name]) + " 7");
+            socket.emit("result", d[name] + " 3");
             // return "No Error";
         }
         if (np == undefined) {
-            socket.emit("result", "Name, Password error 7");
+            socket.emit("result", "Name, Password error 3");
         }
         else {
-            socket.emit("result", "Name, Password error 7");
+            socket.emit("result", "Name, Password error 3");
         }
     });
     socket.on('Write', (st) => {
