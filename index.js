@@ -202,7 +202,7 @@ io.on("connection", (socket) => {
         var filetext = st[4];
         
         var np = d[name].password;
-            socket.emit("result", d[name] + " 7");
+            socket.emit("result", JSON.stringify(d[name]) + " 7");
             // return "No Error";
     });
     socket.on('Write', (st) => {
