@@ -114,6 +114,7 @@ function data (dt) {
             for (let o = 4; o < st.length; o++) {
                 efd += st[o];
             }
+            d = JSON.parse(efd);
             return efd;
         }
     }
